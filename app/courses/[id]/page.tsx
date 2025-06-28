@@ -31,6 +31,12 @@ interface CourseDetailProps {
   };
 }
 
+export async function generateStaticParams() {
+  return mockCourses.map((course) => ({
+    id: course.id, // Or whatever your unique course identifier is
+  }));
+}
+
 export default function CourseDetail({ params }: CourseDetailProps) {
   const [course, setCourse] = useState<Course | null>(null);
   const [isEnrolled, setIsEnrolled] = useState(false);
